@@ -9,6 +9,7 @@
 #import "FBClassStrongLayout.h"
 
 #import <mach/mach.h>
+#import <malloc/malloc.h>
 #import <math.h>
 #import <memory>
 #import <objc/runtime.h>
