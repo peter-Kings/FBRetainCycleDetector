@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     :git => "https://github.com/facebook/FBRetainCycleDetector.git",
     :tag => "0.1.4"
   }
-  s.source_files  = "FBRetainCycleDetector", "{FBRetainCycleDetector,rcd_fishhook}/**/*.{h,m,mm,c}"
+  s.source_files  = "FBRetainCycleDetector", "{FBRetainCycleDetector,rcd_fishhook}/**/*.{h,m,mm,c,swift}"
 
   mrr_files = [
     'FBRetainCycleDetector/Associations/FBAssociationManager.h',
@@ -41,6 +41,10 @@ Pod::Spec.new do |s|
     'FBRetainCycleDetector/Filtering/FBStandardGraphEdgeFilters.h',
   ]
 
+  s.swift_version = '5.0'
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES'
+  }
   s.framework = "Foundation", "CoreGraphics", "UIKit"
   s.library = 'c++'
 end
