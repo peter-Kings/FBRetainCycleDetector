@@ -12,8 +12,6 @@
 #import <objc/runtime.h>
 #import <malloc/malloc.h>
 
-#import <FBReport/FBReport.h>
-
 #import "FBAssociationManager.h"
 #import "FBClassStrongLayout.h"
 #import "FBObjectGraphConfiguration.h"
@@ -176,7 +174,8 @@ extern "C" char *swift_demangle(
   } else if (_object && ![_object isProxy] && [_object respondsToSelector:@selector(customClassDescription)]) {
     className = [_object customClassDescription];
   } else {
-    className = NSStringFromClass(FBCastNonnullOrReportWarning([self objectClass]));
+    Class objectClass = [self objectClass];
+    className = objectClass ? NSStringFromClass(objectClass) : nil;
   }
 
   if (!className) {
